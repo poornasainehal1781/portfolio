@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nehal-GPT | Poorna Sai Nehal Portfolio 2026</title>
+    <meta name="description" content="ChatGPT-Inspired AI Portfolio of Pottapinjara Poorna Sai Nehal - Computer Science Undergraduate, AI Developer & Full Stack Engineer.">
+    <meta name="keywords" content="Poorna Sai Nehal, ChatGPT Portfolio, AI Placement Mentor, Prompt2Program, Portfolio 2026, SR University, React, Python, Flask">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>New Chat</span>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="sidebar-section-title">Saved Prompts</div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="#" class="nav-item preset-prompt active" data-prompt="Tell me about Poorna's top AI & Web projects 🚀">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Featured Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item preset-prompt" data-prompt="What are Poorna's primary technical skills & tools? 💻">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span>Tech Stack & Skills</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item preset-prompt" data-prompt="Show me Poorna's education background and CGPA 🎓">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Education & Stats</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item preset-prompt" data-prompt="What internships and experience does Poorna have? 💼">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <span>Internships & Roles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item preset-prompt" data-prompt="How can I contact Poorna or view his GitHub & LinkedIn? 📬">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Contact & Links</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item preset-prompt" data-prompt="Why should a tech company hire Poorna Sai Nehal? 🎯">
+                            <i class="fa-solid fa-award"></i>
+                            <span>Why Hire Poorna?</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-section-title">Quick Actions</div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="#" class="nav-item view-resume-trigger">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>View Full Resume PDF</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="resume.pdf" download="FINAL_RESUME.pdf" class="nav-item" id="sidebarDownloadPdfBtn">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Download PDF Resume</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/poornasainehal1781" target="_blank" class="nav-item">
+                            <i class="fa-brands fa-github"></i>
+                            <span>GitHub Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/poornsainehal/" target="_blank" class="nav-item">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>LinkedIn Network</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile view-resume-trigger">
+                    <div class="avatar">PN</div>
+                    <div class="user-info">
+                        <div class="user-name">P. Poorna Sai Nehal</div>
+                        <div class="user-role">B.Tech CSE @ SRU</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Toggle Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <!-- Model Selector -->
+                    <div class="model-selector">
+                        <button class="model-select-btn" id="modelSelectBtn">
+                            <span id="currentModelName">Nehal-GPT 4o</span>
+                            <span class="model-badge" id="currentModelBadge">Senior Portfolio</span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i>
+                        </button>
+
+                        <div class="model-dropdown-menu" id="modelDropdown">
+                            <div class="model-option active" data-model="gpt-4o">
+                                <div class="model-option-header">
+                                    <span>Nehal-GPT 4o</span>
+                                    <i class="fa-solid fa-bolt" style="color:#10a37f"></i>
+                                </div>
+                                <div class="model-option-desc">Fast, intelligent, conversational responses about Poorna.</div>
+                            </div>
+                            <div class="model-option" data-model="deepseek-r1">
+                                <div class="model-option-header">
+                                    <span>DeepSeek-Nehal R1</span>
+                                    <i class="fa-solid fa-brain" style="color:#3b82f6"></i>
+                                </div>
+                                <div class="model-option-desc">Includes step-by-step reasoning breakdown before answering.</div>
+                            </div>
+                            <div class="model-option" data-model="executive">
+                                <div class="model-option-header">
+                                    <span>Nehal Executive</span>
+                                    <i class="fa-solid fa-list-check" style="color:#ab68ff"></i>
+                                </div>
+                                <div class="model-option-desc">Concise bullet summary mode designed for quick recruiter review.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="header-btn" id="ttsToggleBtn" title="Toggle Voice Response">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span>Voice TTS</span>
+                    </button>
+                    <a href="resume.pdf" download="FINAL_RESUME.pdf" class="header-btn download-pdf-direct" title="Download Resume PDF">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                    <button class="header-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Canvas -->
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-thread" id="chatThread">
+                    
+                    <!-- Welcome Screen -->
+                    <div class="welcome-screen" id="welcomeScreen">
+                        <div class="welcome-logo">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h1 class="welcome-title">What would you like to know about Poorna Sai Nehal?</h1>
+                        <p class="welcome-subtitle">Ask questions about project architectures, tech skills, internships, live links, or recruiters' FAQs.</p>
+
+                        <div class="prompt-grid">
+                            <div class="prompt-card" data-prompt="Tell me about Poorna's top AI & Web projects 🚀">
+                                <div class="prompt-card-title">🚀 Featured Projects</div>
+                                <div class="prompt-card-desc">Explore Placement Pilot, Prompt2Program & IPL Shop.</div>
+                            </div>
+
+                            <div class="prompt-card" data-prompt="What are Poorna's primary technical skills & tools? 💻">
+                                <div class="prompt-card-title">💻 Tech Stack & Skills</div>
+                                <div class="prompt-card-desc">Python, React.js, Flask, MySQL, Azure AI & ML.</div>
+                            </div>
+
+                            <div class="prompt-card" data-prompt="Explain the AI Placement Mentor project architecture 🧠">
+                                <div class="prompt-card-title">🧠 AI Placement Mentor</div>
+                                <div class="prompt-card-desc">ATS analysis engine & interview question generator.</div>
+                            </div>
+
+                            <div class="prompt-card" data-prompt="How can I contact Poorna or view his GitHub & LinkedIn? 📬">
+                                <div class="prompt-card-title">📬 Contact & Social Links</div>
+                                <div class="prompt-card-desc">Email, phone, GitHub repos, and LinkedIn profile.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Chat Input -->
+            <div class="input-container">
+                <div class="input-box-wrapper">
+                    <button class="input-btn mic-btn" id="micBtn" title="Voice Input (Speech to Text)">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    
+                    <textarea class="chat-input" id="userInput" placeholder="Message Nehal-GPT..." rows="1"></textarea>
+
+                    <button class="input-btn send-btn" id="sendBtn" title="Send message" disabled>
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
+                <div class="input-footer-note">
+                    Nehal-GPT 2026 AI Assistant • Trained on Poorna Sai Nehal's complete resume & project portfolio.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Resume PDF Viewer Modal -->
+    <div class="modal-overlay" id="resumeModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i>
+                    <span>Pottapinjara Poorna Sai Nehal - Resume</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <a href="resume.pdf" download="FINAL_RESUME.pdf" class="download-pdf-btn" id="downloadPdfBtn" title="Download Official PDF Resume">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download PDF</span>
+                    </a>
+                    <button class="modal-close-btn" id="closeResumeModal"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+
+            <!-- Resume Mode Tabs -->
+            <div class="resume-view-toggle">
+                <button class="view-tab-btn active" id="tabPdfView">
+                    <i class="fa-solid fa-file-pdf"></i> Original PDF Document
+                </button>
+                <button class="view-tab-btn" id="tabHtmlView">
+                    <i class="fa-solid fa-code"></i> Structured Web View
+                </button>
+            </div>
+
+            <div class="modal-body" id="modalBody" style="padding: 0;">
+                <!-- PDF Viewer Tab Content -->
+                <div id="pdfViewerContainer" class="tab-content-panel active" style="width: 100%; height: 680px;">
+                    <iframe src="resume.pdf" class="resume-iframe" title="Pottapinjara Poorna Sai Nehal Resume PDF" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+
+                <!-- Structured Web View Tab Content -->
+                <div id="htmlViewerContainer" class="tab-content-panel" style="display: none; padding: 24px;">
+                    <div class="resume-paper">
+                        <div class="resume-header">
+                            <div class="resume-name">POTTAPINJARA POORNA SAI NEHAL</div>
+                            <div class="resume-contacts">
+                                <span><i class="fa-solid fa-phone"></i> +91-70325-42246</span>
+                                <span><i class="fa-solid fa-envelope"></i> poornasai113@gmail.com</span>
+                                <span><a href="https://github.com/poornasainehal1781" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></span>
+                                <span><a href="https://www.linkedin.com/in/poornsainehal/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></span>
+                                <span><i class="fa-solid fa-building-columns"></i> SR University, Warangal</span>
+                            </div>
+                        </div>
+
+                        <div class="resume-section-heading">Summary</div>
+                        <p class="resume-text">Computer Science undergraduate with strong foundations in Python, Java, SQL, Data Structures & Algorithms, and FullStack Development. Passionate about building AI-powered applications and scalable software solutions.</p>
+
+                        <div class="resume-section-heading">Education</div>
+                        <div class="resume-block">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">B.Tech in Computer Science & Engineering <span class="resume-sub-title">— SR University</span></span>
+                                <span class="resume-item-cgpa">CGPA: 8.15/10</span>
+                            </div>
+                            <div class="resume-item-header" style="margin-top: 2px;">
+                                <span class="resume-sub-title">Warangal, Telangana</span>
+                                <span class="resume-item-date">2023–2027</span>
+                            </div>
+                        </div>
+
+                        <div class="resume-section-heading">Technical Skills</div>
+                        <div class="resume-skills-block">
+                            <p><strong>Languages:</strong> Python, Java, SQL</p>
+                            <p><strong>Web / Frameworks:</strong> HTML5, CSS3, JavaScript, React.js, Flask, Streamlit, REST APIs</p>
+                            <p><strong>ML / AI / Data:</strong> pandas, scikit-learn, Altair, NLP, Large Language Models (LLMs), Prompt Engineering, Data Visualization</p>
+                            <p><strong>Tools & Platforms:</strong> Git, GitHub, VS Code, Vercel, MySQL, OpenRouter API</p>
+                        </div>
+
+                        <div class="resume-section-heading">Projects</div>
+                        
+                        <div class="resume-project-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">AI Placement Mentor – AI-Powered Resume Analyzer & Interview Preparation Platform</span>
+                                <span class="resume-item-date">2026</span>
+                            </div>
+                            <div class="resume-item-tech">Python | Flask | React.js | MySQL | OpenRouter API | NLP | Prompt Engineering</div>
+                            <div class="resume-live-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Link: <a href="https://placement-pilot-five.vercel.app" target="_blank">https://placement-pilot-five.vercel.app</a>
+                            </div>
+                            <ul class="resume-bullets">
+                                <li>Engineered a full-stack AI platform that analyzes resumes and generates ATS compatibility scores, reducing manual resume review effort by an estimated 40%.</li>
+                                <li>Designed an NLP-driven analysis engine that extracts 15+ resume attributes (skills, projects, technologies, experience) to auto-generate 50+ tailored, technology-specific interview questions per candidate.</li>
+                                <li>Deployed a production-ready React.js, Flask, and MySQL application with secure resume upload and an interactive dashboard, supporting concurrent multi-user sessions.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-project-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">Prompt2Program – AI Code Generator</span>
+                                <span class="resume-item-date">Mar 2024</span>
+                            </div>
+                            <div class="resume-item-tech">Python | Streamlit | OpenRouter API | Generative AI</div>
+                            <div class="resume-live-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Link: <a href="https://aiac-project-holxwbcahffhefb2ebuvxq.streamlit.app/" target="_blank" rel="noopener noreferrer">Live Link</a>
+                            </div>
+                            <ul class="resume-bullets">
+                                <li>Built an AI-powered web application that converts natural language prompts into functional code across multiple programming languages.</li>
+                                <li>Integrated the OpenRouter API to deliver real-time code explanations and sample outputs, improving user comprehension of generated code.</li>
+                                <li>Implemented secure, session-based API handling within a responsive Streamlit UI, ensuring reliable performance under concurrent use.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-project-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">IPL Merchandise E-Commerce Website</span>
+                                <span class="resume-item-date">Oct 2024</span>
+                            </div>
+                            <div class="resume-item-tech">HTML | CSS | JavaScript</div>
+                            <div class="resume-live-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Link: <a href="https://iplclone-ruby.vercel.app" target="_blank">https://iplclone-ruby.vercel.app</a>
+                            </div>
+                            <ul class="resume-bullets">
+                                <li>Launched a responsive e-commerce website showcasing 30+ products across 10 IPL teams.</li>
+                                <li>Engineered dynamic product filtering by team and category, cutting average product search time by roughly 30%.</li>
+                                <li>Optimized layout and assets to ensure seamless performance across mobile, tablet, and desktop breakpoints.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-section-heading">Internships</div>
+
+                        <div class="resume-internship-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">AI & Cloud Intern — Edunet Foundation (AICTE)</span>
+                                <span class="resume-item-date">2024</span>
+                            </div>
+                            <div class="resume-item-tech">Data Science | Altair | Visualization</div>
+                            <ul class="resume-bullets">
+                                <li>Analyzed multiple real-world datasets and built 10+ interactive Altair visualizations to surface key trends for stakeholders.</li>
+                                <li>Streamlined data preprocessing and exploratory analysis workflows, improving overall data quality and cutting processing time by roughly 25%.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-internship-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">AI & ML Virtual Internship — AICTE</span>
+                                <span class="resume-item-date">2024</span>
+                            </div>
+                            <div class="resume-item-tech">Python | pandas | scikit-learn</div>
+                            <ul class="resume-bullets">
+                                <li>Built and evaluated 5+ machine learning models for classification and regression tasks, benchmarking performance with accuracy and F1-score metrics.</li>
+                                <li>Performed feature engineering and hyperparameter tuning, improving model accuracy by an estimated 10-15% over baseline.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-section-heading">Certifications</div>
+
+                        <div class="resume-cert-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">• Microsoft Azure AI-900 <span class="resume-sub-title">— Azure AI Fundamentals, Microsoft</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="knowledgeBase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
